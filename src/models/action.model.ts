@@ -33,10 +33,4 @@ export class Action {
     this.name = name;
     this.status = Status.Pending;
   }
-
-  serialize() {
-    return {
-      
-    }
-  }
 }

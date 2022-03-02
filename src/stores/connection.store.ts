@@ -1,30 +1,26 @@
 import { Connection } from "../models/connection.model";
 
-interface ConnectionIndex {
-  [index: string]: Connection
-}
-
 export class ConnectionStore {
-  items: ConnectionIndex;
+  items: Array<Connection>;
 
   constructor() {
     this.deleteAll();
   }
 
   add(conn: Connection) {
-    this.items[conn.uuid as string] = conn;
+    this.items.push(conn);
   }
 
-  all() {
-    return Object.values(this.items);
+  all(): Array<Connection> {
+    return this.items;
   }
 
-  find(uuid: String) {
-    return this.items[uuid as string];
+  find(uuid: String): Connection {
+    return this.items.find(i => i.uuid === uuid);
   }
 
   deleteAll() {
-    this.items = {};
+    this.items = [];
   }
 }
 
