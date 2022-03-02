@@ -1,15 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Static, Type } from '@sinclair/typebox'
+import { Entity } from './interfaces.model';
 
 export enum Status {
   Pending,
   Running,
   Finished,
   Err
-};
-
-export interface ActionIndex {
-  [index: string]: Action
 };
 
 export const ActionSchema = Type.Object({
@@ -22,7 +19,7 @@ export const ActionSchema = Type.Object({
 
 export type ActionType = Static<typeof ActionSchema>;
 
-export class Action {
+export class Action implements Entity {
   uuid: String;
   name: String;
   err_string: String;

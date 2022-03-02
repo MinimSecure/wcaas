@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Static, Type } from '@sinclair/typebox'
-import { ActionIndex, ActionType, Action } from './action.model';
+import { ActionType, Action } from './action.model';
+import { Entity } from './interfaces.model';
 
 export enum Status {
   Pending,
@@ -19,13 +20,13 @@ export const ConnectionSchema = Type.Object({
 
 export type ConnectionType = Static<typeof ConnectionSchema>;
 
-export class Connection {
+export class Connection implements Entity {
   uuid: String;
   ssid: String;
   passphrase: String;
   error: String;
   status: Status;
-  actions: ActionIndex;
+  actions: Array<Action>;
 
   constructor(ssid: String, passphrase: String) {
     this.uuid = uuidv4();
