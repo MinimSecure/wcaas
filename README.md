@@ -1,4 +1,4 @@
-# WCASS
+# WCAAS
 
 The Wireless Client as a Service framework provides a shared interface to connect a WiFi client to a wireless Access Point and then perform various tasks when connected. It can be used as a shared resource so multiple sources can queue up requests but it will only handle one transaction at a time.
 
