@@ -7,8 +7,10 @@ export abstract class AbstractStore<T extends Entity> {
     this.deleteAll();
   }
 
-  add(conn: T) {
+  add(conn: T): T {
     this.items.push(conn);
+
+    return conn;
   }
 
   all(): Array<T> {
